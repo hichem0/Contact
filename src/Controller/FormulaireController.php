@@ -23,7 +23,10 @@ class FormulaireController extends AbstractController
         //$form = $this->createForm(TestType::class);
 
         if ($request-> isMethod('POST') && $form->handleRequest($request)->isValid()){
-
+            $this->get('session')->getFlashBag()->add(
+                'Success',
+                'Contact Added!'
+            );
             $em->persist($formulaire);
             $em->flush();
         }

@@ -21,5 +21,10 @@
         {{ form_end(form) }}
 
     </section>
+    {% for flashMessage in app.session.flashbag.get('Success') %}
 
+    <div class="alert alert-success">
+        {{ flashMessage }}
+    </div>
+    {% endfor %}
 {% endblock %}
