@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\FormulaireType;
+use App\Form\TestType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -17,10 +18,11 @@ class FormulaireController extends AbstractController
     {
         $em = $this->getDoctrine()->getManager();
         $formulaire = new Formulaire();
+
         $form= $this->createForm(FormulaireType::class,$formulaire);
+        //$form = $this->createForm(TestType::class);
 
-
-        if ($request-> isMethod('POST') && $form ->handleRequest($request)->isValid()){
+        if ($request-> isMethod('POST') && $form->handleRequest($request)->isValid()){
 
             $em->persist($formulaire);
             $em->flush();

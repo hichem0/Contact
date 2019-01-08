@@ -19,12 +19,12 @@ class Division
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $N_divis;
+    private $nDivis;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Email;
+    private $email;
 
     public function getId(): ?int
     {
@@ -33,25 +33,27 @@ class Division
 
     public function getNDivis(): ?string
     {
-        return $this->N_divis;
+        return $this->nDivis;
     }
 
-    public function setNDivis(string $N_divis): self
+    public function setNDivis(string $nDivis): self
     {
-        $this->N_divis = $N_divis;
+        $this->nDivis = $nDivis;
 
         return $this;
     }
 
     public function getEmail(): ?string
     {
-        return $this->Email;
+        return $this->email;
     }
 
-    public function setEmail(string $Email): self
+    public function setEmail(string $email): self
     {
-        $this->Email = $Email;
+        $this->email = $email;
 
         return $this;
     }
+
+
 }

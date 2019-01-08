@@ -16,12 +16,13 @@ class FormulaireType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
+            ->add('categorie')
             ->add(
-                'categorie',
+                'categoryEntity',
                 EntityType::class,
                 [
                     'class' => Division::class,
-                    'choice_label' => 'n_divis',
+                    'choice_label' => 'nDivis',
                     'expanded' => false,
                     'multiple' => false
                 ]

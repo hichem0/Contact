@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\DBAL\Types\TextType;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\Division;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\FormulaireRepository")
@@ -42,6 +43,13 @@ class Formulaire
      * @ORM\Column(type="datetime")
      */
     private $date_envoie;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Division")
+     */
+    private $categoryEntity;
+
+
     public function __construct()
     {
 
@@ -111,6 +119,18 @@ class Formulaire
     public function setDateEnvoie(\DateTimeInterface $date_envoie): self
     {
         $this->date_envoie = $date_envoie;
+
+        return $this;
+    }
+
+    public function getCategoryEntity(): ?Division
+    {
+        return $this->categoryEntity;
+    }
+
+    public function setCategoryEntity(?Division $categoryEntity): self
+    {
+        $this->categoryEntity = $categoryEntity;
 
         return $this;
     }
