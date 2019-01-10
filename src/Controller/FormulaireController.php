@@ -33,9 +33,8 @@ class FormulaireController extends AbstractController
 
         }
 
-
-        $message = (new \Swift_Message('Hello'))
-            ->setSubject('Hello')
+        $message = (new \Swift_Message('Hello '))
+            ->setSubject('Hello ')
             ->setTo($formulaire->getEmail())
             ->setTo('hichembedjaoui4@gmail.com')
             ->setBody(
