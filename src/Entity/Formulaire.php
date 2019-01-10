@@ -49,6 +49,11 @@ class Formulaire
      */
     private $categoryEntity;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Email;
+
 
     public function __construct()
     {
@@ -131,6 +136,18 @@ class Formulaire
     public function setCategoryEntity(?Division $categoryEntity): self
     {
         $this->categoryEntity = $categoryEntity;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->Email;
+    }
+
+    public function setEmail(string $Email): self
+    {
+        $this->Email = $Email;
 
         return $this;
     }

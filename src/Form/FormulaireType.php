@@ -27,7 +27,7 @@ class FormulaireType extends AbstractType
                     'multiple' => false
                 ]
             )
-
+            ->add('Email')
             ->add('message')
 
         ;

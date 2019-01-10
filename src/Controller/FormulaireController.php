@@ -14,7 +14,7 @@ class FormulaireController extends AbstractController
     /**
      * @Route("/formulaire", name="formulaire")
      */
-    public function index(Request $request)
+    public function index(Request $request, \Swift_Mailer $mailer )
     {
         $em = $this->getDoctrine()->getManager();
         $formulaire = new Formulaire();
@@ -29,7 +29,25 @@ class FormulaireController extends AbstractController
             );
             $em->persist($formulaire);
             $em->flush();
+
+
         }
+
+
+        $message = (new \Swift_Message('Hello'))
+            ->setSubject('Hello')
+            ->setTo($formulaire->getEmail())
+            ->setTo('hichembedjaoui4@gmail.com')
+            ->setBody(
+                $this->render('Formulaire/index.html.twig', [
+
+                        'form'=> $form->createview()]
+                ),
+                'text/html'
+            )
+
+        ;
+       $mailer->send($message);
 
         return $this->render('Formulaire/index.html.twig', [
 
